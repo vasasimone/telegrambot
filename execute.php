@@ -4,7 +4,7 @@
 		require 'functions.php';
 		
 		//TokenTelegram
-		$api ='TokenTelegram';
+		$api ='1854878834:AAE9k1fggAN75gdg2kl-iG6BZV2V9E5kz7c';
 
 		
 		
@@ -48,7 +48,20 @@
 		//i parametri sono cosa voglio mandare indietro al mio utente
 		$parameters = array('chat_id' => $chatId, "text" => $text);
 		
-		
+		if($text == "data"){
+			$risp = "la data odierna è: ".date("d.m.y");
+			$parameters = array("chat_id" => $chatid, "text" => $risp);
+		}
+if($text == "foto"){
+	$foto[0] = "foto.jpg";
+	$foto[1] = "foto1.jpg";
+	
+	$i = rand(0,1);
+	
+	
+	sendFoto($chatid, $foto[$1], "descrizione foto", $api);
+}
+
 		
 		
 		//aggiungo il comando di invio
