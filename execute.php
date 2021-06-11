@@ -47,21 +47,42 @@
 		header("Content-Type: application/json");
 		//i parametri sono cosa voglio mandare indietro al mio utente
 		$parameters = array('chat_id' => $chatId, "text" => $text);
-		
 		if($text == "data"){
-			$risp = "la data odierna è: ".date("d.m.y");
-			$parameters = array("chat_id" => $chatid, "text" => $risp);
-		}
-if($text == "foto"){
-	$foto[0] = "foto.jpg";
-	$foto[1] = "foto1.jpg";
-	
-	$i = rand(0,1);
-	
-	
-	sendFoto($chatid, $foto[$1], "descrizione foto", $api);
-}
+      $risp = "la data odierna è:".date("d.m.y");
+     $parameters = array('chat_id' => $chatId, "text" => $risp);
+    }
+    if($text == "ciao"){
+      $text="Benvenuto sul Bot Sasuke Uchihaa!";
+      $parameters = array('chat_id' => $chatId, "text" => $text);
+    }
+    if($text == "foto"){
+       //Salvo all'interno del vettore $foto 3 foto in posizioni differenti
+        $foto[0] = "./img/foto.jpg";
+        $foto[1] = "./img/foto.png";
+   $foto[2] = "./img/foto1.png";
+   $foto[3] = "./img/foto2.png";
+             //genero un numero random tra 0 e 3 e lo salvo nella variabile $fotojpg;
+       $i = rand(0,3);  
+       sendFoto($chatId, $foto[$i],false,"descrizione foto", $api);
+     }
+                if($text=="barze"){
+       //Salvo all'interno del vettore $barze 2 bazelette in posizioni differenti
+        $barze[0] = "Che cos è una zebra? Un cavallo evaso dal carcere!";
+        $barze[1] = "Qual è il colmo per un truffatore?Fare un buco nell acqua.";
+        $barze[2] = "Chi la fa la vende, chi la compra non la usa, chi la usa non la vede, cos è???? La tomba.";
+              $barze[3] = "Qual è il colmo per un giardiniere? Piantare la fidandata."; 
+       //genero un numero random tra 0 e 2 e lo salvo nella variabile $i 
+        $i = rand(0,3); 
+        $parameters = array('chat_id' => $chatId, "text" => $barze[$i]);
+      }
 
+	if($text == "audio"){
+		sendAudio($chatid,"audio.mp3", false,"file audio",$api);
+	}
+if($text =="pdf"){
+	sendDocument($chatid,"testo.pdf",false, "un testo in pdf", $api);
+	}
+	
 		
 		
 		//aggiungo il comando di invio
@@ -77,7 +98,7 @@ if($text == "foto"){
 		
 		?>
 		
-		
+
 		
 		
 		
