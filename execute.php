@@ -77,10 +77,10 @@
       }
 
 	if($text == "audio"){
-		sendAudio($chatid,"audio.mp3", false,"file audio",$api);
+		sendAudio($chatid,"./audio/audio.mp3", false,"file audio",$api);
 	}
 if($text =="pdf"){
-	sendDocument($chatid,"testo.pdf",false, "un testo in pdf", $api);
+	sendDocument($chatid,"./files/testo.pdf",false, "un testo in pdf", $api);
 	}
 	
 		
